@@ -1,45 +1,103 @@
 <template>
-    <h1>List of Grocery</h1>
-    <v-container grid-list-xs>
-        <v-card v-for="grocery in groceryObject.data" key="grocery.grocery_id" class="px-15" width="200" height="200">
-            {{grocery.name}}
-            {{grocery.brand}}
-            {{grocery.origin}}
-            {{grocery.quantity}}
-            {{grocery.size}}
-        </v-card>
-    </v-container>
+
+
+        <h1>List of Movies</h1>
+
+
+          <v-layout row wrap>
+          <v-flex xs12 sm6 md4 lg1 v-for="movie in movieObject.data" key="movie.title">
+          <v-card
+         class="mx-auto ma-3"
+         max-width="344"
+         outlined
+       >
+         <v-list-item three-line>
+           <v-list-item-content>
+             <div class="text-overline mb-4">
+               {{movie.title}}
+             </div>
+             <v-list-item-title class="text-h5 mb-1">
+               {{movie.genre}}
+             </v-list-item-title>
+             <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+           </v-list-item-content>
+     
+           <v-list-item-avatar
+             tile
+             size="80"
+             color="grey"
+           ></v-list-item-avatar>
+         </v-list-item>
+     
+         <v-card-actions>
+           <v-btn
+             outlined
+             rounded
+             text
+           >
+             Button
+           </v-btn>
+         </v-card-actions>
+       </v-card>
+      </v-flex>
+          </v-layout>
+
+          <button @click="nextPage">next</button>
+          <button @click="prevPage">prev</button>
 
 </template>
 
 <script setup>
+
+
+
+
+
+
 import axios from 'axios';
 import {ref, onMounted} from 'vue';
 
-const groceryObject = ref([]);
+const movieObject = ref([]);
 var stringifyJSON = ref("");
+const listStart = ref(0);
+const listEnd = ref(6);
 
-function getGroceryApi(){
-  axios.get('https://groceries2.p.rapidapi.com/api/v1/groceries', options).then(
+
+
+function getMovieApi(){
+  axios.get('https://movies115.p.rapidapi.com/cartaz', options).then(
         (value)=>{
             stringifyJSON = JSON.stringify(value);
-            groceryObject.value = JSON.parse(stringifyJSON);
+            movieObject.value = JSON.parse(stringifyJSON);
+            console.log(movieObject.value);
+            
         }
     );
 
 }
 
+function nextPage(){
+  listStart.value = listStart.value + 5;
+  listEnd.value = listEnd.value + 5;
+}
+
+function prevPage(){
+  listStart.value = listStart.value - 5;
+  listEnd.value = listEnd.value - 5;
+}
+
 
 const options = {
   method: 'GET',
-  url: 'https://groceries2.p.rapidapi.com/api/v1/groceries',
+  url: 'https://movies115.p.rapidapi.com/cartaz',
   headers: {
     'X-RapidAPI-Key': '442a343cfdmshbbd178fcc294d51p1fdfe4jsn9d14b2c48def',
-    'X-RapidAPI-Host': 'groceries2.p.rapidapi.com'
+    'X-RapidAPI-Host': 'movies115.p.rapidapi.com'
   }
 };
 
 onMounted(() => {
-   getGroceryApi()
+  getMovieApi();
+
 })
 </script>
