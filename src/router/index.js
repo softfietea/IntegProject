@@ -7,7 +7,8 @@ import SimpleCalculatorView from "../views/SimpleCalculator.vue";
 import StringManipulation from "../views/StringManipulation.vue";
 import VuetifyView from "../views/Vuetify.vue";
 import CompositionApiView from "../views/CompositionApi.vue";
-import Area from "../views/Area.vue";
+import AreaView from "../views/Area.vue";
+import AxiosView from "../views/Axios.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,7 +60,12 @@ const router = createRouter({
     {
       path: "/area",
       name: "Area",
-      component: Area,
+      component: AreaView,
+    },
+    {
+      path: "/axios",
+      name: "Axios",
+      component: AxiosView,
     },
   ],
 });
