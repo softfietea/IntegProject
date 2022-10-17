@@ -11,11 +11,11 @@ export default createVuetify({
     defaultTheme: "customTheme",
     themes: {
       customTheme: {
-        dark: false,
+        dark: true,
         colors: {
           primary: "#84ED1C",
           secondary: "#EEE3CB",
-          background: "#E9E9E9",
+          background: "#2B2B2B",
         },
       },
     },

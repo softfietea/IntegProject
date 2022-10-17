@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar app color="primary">
+    <v-toolbar app color="background">
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <span class="font-weight-light">Lesson 3 </span>
@@ -33,7 +33,7 @@
       </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer app v-model="drawer" floating="true" color="primary">
+    <v-navigation-drawer app v-model="drawer" floating="true" color="background">
       <v-container class="mx-15" fluid>
         <v-avatar image="./src/assets/alfiePicture.jpg" size="100"> </v-avatar>
       </v-container>
