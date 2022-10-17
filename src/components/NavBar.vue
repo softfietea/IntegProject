@@ -3,8 +3,7 @@
     <v-toolbar app color="background">
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
-        <span class="font-weight-light">Lesson 3 </span>
-        <span>Laboratory</span>
+      Integrative Programming and Technologies
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
