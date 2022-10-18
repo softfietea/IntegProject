@@ -1,17 +1,12 @@
 <template>
   <v-container>
-    <h1 class="title">About Vuetify</h1>
+    <h1 >About Vuetify</h1>
     <br />
-    <v-img
-      width="400"
-      alt=""
-      class="hidden-md mb-10"
-      src="./src/assets/vuetifyPic.jpg"
-    ></v-img>
+
     <v-card
       title="Vuetify"
       subtitle="This section talks about the concept of vuetify"
-      color="#EEF2E6"
+  
       text="A Vue UI library called Vuetify features exquisitely made Material Components. Everything you need to build incredible applications is there at your fingertips, so design expertise is not necessary. On top of Vue.js, Vuetify is a full-featured UI framework. Giving developers the resources they need to create complex and interesting user interfaces is the project's main objective. Vuetify, in contrast to other frameworks, was created from the bottom up to be simple to learn and rewarding to master. It has hundreds of carefully made components that adhere to the Material Design guideline.
 
 Because Vuetify designs for mobile devices first, your application will function correctly on any device—phone, tablet, or desktop—right out of the box. One of the most widely used JavaScript frameworks worldwide since its original release in 2014, Vue.js. One of the factors contributing to its popularity is the widespread use of components, which allow programmers to build succinct modules that can be utilized and reused across their application. These modules are organized into UI Libraries, which give developers the resources they need to create large-scale web applications while implementing a certain style standard.
@@ -26,7 +21,5 @@ With Vuetify, you are never working alone, which is different from other framewo
 <script setup></script>
 
 <style scoped>
-.title {
-  color: darkslategrey;
-}
+
 </style>

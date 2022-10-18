@@ -1,14 +1,16 @@
 <template>
-  <v-card class="ma-15" max-width="544" color="white">
-    <v-card-title> String Manipulator </v-card-title>
+  <div class="ma-15 justify-content-center align-content-center">
+  <v-card class="" max-width="800" >
+    <v-card-title> String Manipulator </v-card-title> 
     <v-text-field label="Enter a String" v-model="stringInput"></v-text-field>
-    <v-btn @click="doCountVowel"> Manipulate Word </v-btn>
-    <v-card height="30"> Vowels Count: {{ vowelCount }} </v-card>
-    <v-card height="30"> Consonant Count: {{ consonantCount }} </v-card>
-    <v-card height="30"> Number Count: {{ numberCount }} </v-card>
-    <v-card height="30"> Converted Asterisk: {{ convertedText }} </v-card>
-    <v-card height="30"> Converted Uppercase: {{ convertedCapital }} </v-card>
+    <v-btn @click="doCountVowel" color="pink" class="text-white ma-5"> Manipulate Word </v-btn>
+    <v-card height="30" class="pa-8"> Vowels Count: {{ vowelCount }} </v-card>
+    <v-card height="30" class="pa-8"> Consonant Count: {{ consonantCount }} </v-card>
+    <v-card height="30" class="pa-8"> Number Count: {{ numberCount }} </v-card>
+    <v-card height="30" class="pa-8"> Converted Asterisk: {{ convertedText }} </v-card>
+    <v-card height="30" class="pa-8"> Converted Uppercase: {{ convertedCapital }} </v-card>
   </v-card>
+</div>
 </template>
 
 <script setup>
