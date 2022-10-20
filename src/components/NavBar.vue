@@ -34,7 +34,7 @@
 
     <v-navigation-drawer app v-model="drawer" floating="true" color="background">
       <v-container class="mx-15" fluid>
-        <v-avatar image="./src/assets/alfiePicture.jpg" size="100"> </v-avatar>
+        <v-avatar image="../src/assets/alfiePicture.jpg" size="100"> </v-avatar>
       </v-container>
       <div class="navHeader">Alfie C. Tribaco</div>
       <div class="navHeaderSecondary">IT41S1</div>
