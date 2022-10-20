@@ -85,6 +85,7 @@ const items = ref([
   { title: "Composition API", icon: "mdi-code-json", path: "/compositionApi" },
   { title: "Area Activity", icon: "mdi-vector-triangle", path: "/area" },
   { title: "Axios Activity", icon: "mdi-api", path: "/axios" },
+  { title: "Quiz Activity", icon: "mdi-help", path: "/quiz" },
 ]);
 
 function toggleDrawer() {

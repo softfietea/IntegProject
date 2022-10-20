@@ -9,6 +9,7 @@ import VuetifyView from "../views/Vuetify.vue";
 import CompositionApiView from "../views/CompositionApi.vue";
 import AreaView from "../views/Area.vue";
 import AxiosView from "../views/Axios.vue";
+import QuizView from "../views/Quiz.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,6 +67,11 @@ const router = createRouter({
       path: "/axios",
       name: "Axios",
       component: AxiosView,
+    },
+    {
+      path: "/quiz",
+      name: "Quiz",
+      component: QuizView,
     },
   ],
 });
