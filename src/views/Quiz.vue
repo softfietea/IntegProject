@@ -1,7 +1,18 @@
 <template>
 
-<v-container v-if= "!isStart" class="d-flex flex-row justify-center align-center fill-height">
-    <button class="button"  @click="startGame">Start Quiz</button>
+<v-container v-if= "!isStart" class="d-flex flex-column align-center justify-center" >
+   
+    <v-col>
+
+
+            <v-text-field
+      color="#ff1d5e"
+      label="Username"
+      v-model="username"
+      hide-details="auto"
+    ></v-text-field>
+    <button class="button mt-5"  @click="startGame">Start Quiz</button>
+</v-col>
 </v-container>
 
 
@@ -45,14 +56,16 @@
 <h1>{{score}}/10</h1>
 
 
-<v-card v-for="player in leaderboard" key="player.user">
-<v-row><v-card-item>{{ player.user}}</v-card-item>
-<v-card-item> {{player.topscore}}</v-card-item></v-row>
+<v-card >
+    <h1 class="ma-5">Leaderboard: </h1>
+    <v-card v-for="player in leaderboard" key="player.user" width="500px" class="ma-10 red" >
+        <v-row class="pa-5" ><v-card-item>Name: {{ player.user}}</v-card-item>
+<v-card-item>Score:  {{player.topscore}}</v-card-item></v-row>
+    </v-card>
+
 
 </v-card>
-
-<button class="button" @click="resetQuiz">Retry</button> 
-<button class="button" @click="checkUserObLeaderboard('pat',101)">Retry</button> 
+<button class="button" width="400px" @click="resetQuiz">Retry</button> 
 </v-container>
 
 
@@ -72,7 +85,7 @@
 <script setup>
 import {ref,onMounted} from 'vue';
 import axios from 'axios';
-
+const username = ref('');
 const arrayOfQuestion = ref([]);
 var currentCorrectAnswer = ref('');
 const quizObject = ref([]);
@@ -161,7 +174,9 @@ function nextQuestion() {
  
     if(numQuestion.value == 9){
         isFinish.value = true;
-        
+        if(isFinish.value){
+            checkUserObLeaderboard(username.value,score.value)
+        }
     }else{
         numQuestion.value++;
         randomizeQuestion();
@@ -171,6 +186,8 @@ function nextQuestion() {
 }
 
 function resetQuiz(){
+    username.value = "";
+    isStart.value = false;
 score.value = 0;
 numQuestion.value = 0;
 isLoaded.value = false;
@@ -206,25 +223,25 @@ console.log(arrayOfQuestion);
 }
 
 .button{
-    padding: 15px 25px;
+  padding: 15px 25px;
   font-size: 24px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #1167a0;
+  background-color: #ff1d5e;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px rgb(73, 73, 73);
+  box-shadow: 0 9px rgb(78, 44, 63);
    height: 60px;
-   width: 600px;
+   max-width: 600px;
 }
 
-.button:hover {background-color: #1d5dd4}
+.button:hover {background-color: #ff6f98}
 
 .button:active {
-  background-color: #7334c5;
-  box-shadow: 0 5px rgb(28, 40, 73);
+  background-color: #ff0048;
+  box-shadow: 0 5px rgb(255, 191, 226);
   transform: translateY(4px);
 }
 
