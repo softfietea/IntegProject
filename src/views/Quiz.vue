@@ -27,13 +27,13 @@
 <div class="choices mt-10">
 
 
-<button class="button"  @click="verifyAnswer(arrayOfQuestion[0].toString() == currentCorrectAnswer)">A. {{ [arrayOfQuestion[0]].toString()}}</button>
+<button class="button" @click="verifyAnswer(arrayOfQuestion[0].toString() == currentCorrectAnswer)">A. {{ [arrayOfQuestion[0]].toString()}}</button>
 <br>
-<button class="button"   @click="verifyAnswer(arrayOfQuestion[1].toString() == currentCorrectAnswer)">B.{{ [arrayOfQuestion[1]].toString()}}</button>
+<button class="button" @click="verifyAnswer(arrayOfQuestion[1].toString() == currentCorrectAnswer)">B.{{ [arrayOfQuestion[1]].toString()}}</button>
 <br>
-<button class="button"   @click="verifyAnswer(arrayOfQuestion[2].toString() == currentCorrectAnswer)">C. {{ [arrayOfQuestion[2]].toString()}}</button>
+<button class="button" @click="verifyAnswer(arrayOfQuestion[2].toString() == currentCorrectAnswer)">C. {{ [arrayOfQuestion[2]].toString()}}</button>
 <br>
-<button class="button"  @click="verifyAnswer(arrayOfQuestion[3].toString() == currentCorrectAnswer)">D. {{ [arrayOfQuestion[3]].toString()}}</button>
+<button class="button" @click="verifyAnswer(arrayOfQuestion[3].toString() == currentCorrectAnswer)">D. {{ [arrayOfQuestion[3]].toString()}}</button>
 <br>
 </div>
     </div>
@@ -43,7 +43,16 @@
 <h1>Quiz is Finish</h1>
 <h2>Your Score is</h2>
 <h1>{{score}}/10</h1>
+
+
+<v-card v-for="player in leaderboard" key="player.user">
+<v-row><v-card-item>{{ player.user}}</v-card-item>
+<v-card-item> {{player.topscore}}</v-card-item></v-row>
+
+</v-card>
+
 <button class="button" @click="resetQuiz">Retry</button> 
+<button class="button" @click="checkUserObLeaderboard('pat',101)">Retry</button> 
 </v-container>
 
 
@@ -73,10 +82,38 @@ const isFinish = ref(false);
 const isStart = ref(false);
 var quizStringify = ref("");
 var score = ref(0);
-const leaderboard = ref([5]);
+const leaderboard = ref([]);
 
-function setLeaderboard(name){
- leaderboard.value.sort()   
+function compareScore(a, b) {
+
+return b.topscore - a.topscore;
+}
+
+
+function addUserOnLeaderboard(name,score){
+    leaderboard.value.push({user:name,topscore:score});
+    leaderboard.value.sort(compareScore); 
+    console.log(leaderboard.value);
+}
+
+function checkUserObLeaderboard(name,score){
+ 
+    if(leaderboard.value.length < 5){
+        addUserOnLeaderboard(name,score);
+        leaderboard.value.sort(compareScore); 
+    }
+if(leaderboard.value.length >= 5){
+ leaderboard.value.sort(compareScore); 
+ if(score > leaderboard.value[leaderboard.value.length - 1].topscore){
+ leaderboard.value.pop();
+ addUserOnLeaderboard(name,score);
+ leaderboard.value.sort(compareScore); 
+ }else{
+    console.log("Your score do not meet requirements");
+}
+}
+
+
 
 }
 
