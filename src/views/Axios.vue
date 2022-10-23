@@ -1,13 +1,13 @@
 <template>
 
-<v-container grid-list-lg  >
+<div class="ml-16 fill-height">
   
 
         <h1>List of Movies</h1>
 
 
 
-  <v-container v-if= "apiIsLoading" class="d-flex flex-row justify-center  fill-height">
+  <v-container v-if= "apiIsLoading" class="d-flex flex-row justify-center align-center fill-height">
         <div class="pixel-spinner align-center">
 
             <div class="pixel-spinner-inner"></div>
@@ -61,7 +61,7 @@
           </v-row>
 
         </div>
-        </v-container>
+      </div> 
 </template>
 
 
