@@ -7,7 +7,7 @@
       variant="outlined"
     >
     <v-img
-     src="/src/assets/coverphoto.png"
+     src="/assets/coverphoto.png"
      height="260px"
      contain
     ></v-img>
