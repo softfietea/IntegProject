@@ -7,7 +7,7 @@
 
             <v-text-field
       color="#ff1d5e"
-      label="Username"
+      label="Input Player Name"
       v-model="username"
       hide-details="auto"
     ></v-text-field>
