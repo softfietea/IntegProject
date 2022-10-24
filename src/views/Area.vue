@@ -17,7 +17,7 @@
           v-model="wantedShape"
         ></v-text-field>
       </div>
-      <v-btn @click="submitChosenShape" color="primary">Submit</v-btn>
+      <v-btn @click="submitChosenShape" color="thirdy">Submit</v-btn>
       <p
         v-if="
           chosenShape != 1 &&
@@ -38,10 +38,10 @@
         <v-text-field label="input width" v-model="input1"></v-text-field>
         <v-text-field label="input length" v-model="input2"></v-text-field>
 
-        <v-btn @click="computeRectangle" color="primary"
+        <v-btn @click="computeRectangle" color="thirdy"
           >Compute Area of Rectangle</v-btn
         >
-        <v-card class="pa-5 mt-10">Result: {{ areaOfRectangle }}</v-card>
+        <v-card class="pa-5 mt-10"  max-width="500px" color="secondary">Result: {{ areaOfRectangle }}</v-card>
       </div>
 
       <!-- 
@@ -51,10 +51,10 @@
       <div v-if="chosenShape == 2" class="mt-5">
         <v-text-field label="input Side" v-model="input1"></v-text-field>
 
-        <v-btn @click="computeSquare" color="primary"
+        <v-btn @click="computeSquare" color="thirdy"
           >Compute Area of Square</v-btn
         >
-        <v-card class="pa-5 mt-10">Result: {{ areaOfSquare }}</v-card>
+        <v-card class="pa-5 mt-10" max-width="500px" color="secondary">Result: {{ areaOfSquare }}</v-card>
       </div>
       <!--
         Triangle Rendering Part
@@ -63,11 +63,11 @@
         <v-text-field label="input base" v-model="input1"></v-text-field>
         <v-text-field label="input height" v-model="input2"></v-text-field>
 
-        <v-btn @click="computeTriangle" color="primary"
+        <v-btn @click="computeTriangle" color="thirdy"
           >Compute Area of Triangle</v-btn
         >
 
-        <v-card class="pa-5 mt-10">Result: {{ areaOfTriangle }}</v-card>
+        <v-card class="pa-5 mt-10"  max-width="500px" color="secondary">Result: {{ areaOfTriangle }}</v-card>
       </div>
 
       <!--
@@ -77,11 +77,11 @@
       <div v-if="chosenShape == 4" class="mt-5">
         <v-text-field label="input radius" v-model="input1"></v-text-field>
 
-        <v-btn @click="computeCircle" color="primary"
+        <v-btn @click="computeCircle" color="thirdy"
           >Compute Area of Circle</v-btn
         >
 
-        <v-card class="pa-5 mt-10">Result: {{ areaOfCircle }}</v-card>
+        <v-card class="pa-5 mt-10"  max-width="500px" color="secondary">Result: {{ areaOfCircle }}</v-card>
       </div>
     </div>
   </v-container>

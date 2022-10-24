@@ -1,20 +1,19 @@
 <template>
 
-<v-container v-if= "!isStart" class="d-flex flex-column align-center justify-center" >
-   
-    <v-col>
 
 
-            <v-text-field
+
+
+<v-container v-if= "!isStart" class="d-flex flex-column align-stretch justify-center">
+    <v-text-field
       color="#ff1d5e"
       label="Input Player Name"
       v-model="username"
       hide-details="auto"
     ></v-text-field>
     <button class="button mt-5"  @click="startGame">Start Quiz</button>
-</v-col>
-</v-container>
 
+</v-container>
 
 <div v-if="isStart">
 
@@ -56,7 +55,7 @@
 <h1>{{score}}/10</h1>
 
 
-<v-card >
+<v-card variant="outlined" >
     <h1 class="ma-5">Leaderboard: </h1>
     <v-card v-for="player in leaderboard" key="player.user" width="500px" class="ma-10 red" >
         <v-row class="pa-5" ><v-card-item>Name: {{ player.user}}</v-card-item>
@@ -65,7 +64,7 @@
 
 
 </v-card>
-<button class="button" width="400px" @click="resetQuiz">Retry</button> 
+<button class="button mt-5" width="400px" @click="resetQuiz">Retry</button> 
 </v-container>
 
 
@@ -104,9 +103,15 @@ return b.topscore - a.topscore;
 
 
 function addUserOnLeaderboard(name,score){
-    leaderboard.value.push({user:name,topscore:score});
+    if(name == ""){
+        leaderboard.value.push({user:"Player",topscore:score});
+    }else{
+        leaderboard.value.push({user:name,topscore:score});
     leaderboard.value.sort(compareScore); 
     console.log(leaderboard.value);
+
+    }
+  
 }
 
 function checkUserObLeaderboard(name,score){

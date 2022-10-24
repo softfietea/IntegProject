@@ -26,13 +26,9 @@
         </v-list>
       </v-menu>
 
-      <v-btn flat color="#EEF2E6">
-        <span>Sign Out</span>
-        <v-icon right>exit_to_app</v-icon>
-      </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer app v-model="drawer" floating="true" color="background">
+    <v-navigation-drawer app v-model="drawer" floating="true" color="drawerBackground">
       <v-container class="mx-15" fluid>
         <v-avatar image="../src/assets/alfiePicture.jpg" size="100"> </v-avatar>
       </v-container>
@@ -55,7 +51,6 @@
 
 <script setup>
 import { ref } from "vue";
-
 const drawer = ref(false);
 
 const items = ref([

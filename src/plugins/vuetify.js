@@ -13,9 +13,12 @@ export default createVuetify({
       customTheme: {
         dark: true,
         colors: {
-          primary: "#84ED1C",
-          secondary: "#EEE3CB",
-          background: "#2B2B2B",
+          drawerBackground:"#13141d",
+          highlightColorText: "#d6fb06",
+          primary: "#dbddde",
+          secondary: "#c76417",
+          thirdy:"#da4e4b",
+          background: "#070b13",
         },
       },
     },

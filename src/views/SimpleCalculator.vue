@@ -3,31 +3,31 @@
     <v-text-field label="First Input" v-model.number="fNumber"></v-text-field>
     <v-text-field label="Second Input" v-model.number="sNumber"></v-text-field>
 
-    <v-btn @click="doSum" color="primary">Results</v-btn>
+    <v-btn @click="doSum" color="highlightColorText">Results</v-btn>
 
     <v-row align="center" justify="space-between" class="mx-10 mt-15">
-      <v-card height="120" width="150" title="Sum:">
+      <v-card height="120" width="150" title="Sum:" color="#cb6914">
         <v-col align="center" justify="center">
           <p class="font-weight-light text-h4">
             {{ sum }}
           </p>
         </v-col>
       </v-card>
-      <v-card height="120" width="150" title="Difference:">
+      <v-card height="120" width="150" title="Difference:" color="#cb6914">
         <v-col align="center" justify="center">
           <p class="font-weight-light text-h4">
             {{ difference }}
           </p>
         </v-col>
       </v-card>
-      <v-card height="120" width="150" title="Product:">
+      <v-card height="120" width="150" title="Product:" color="#cb6914">
         <v-col align="center" justify="center">
           <p class="font-weight-light text-h4">
             {{ product }}
           </p>
         </v-col>
       </v-card>
-      <v-card height="120" width="150" title="Quotient:">
+      <v-card height="120" width="150" title="Quotient:" color="#cb6914">
         <v-col align="center" justify="center">
           <p class="font-weight-light text-h4">
             {{ quotient }}
@@ -35,7 +35,7 @@
         </v-col>
       </v-card>
 
-      <v-card height="120" width="150" title="Average:">
+      <v-card height="120" width="150" title="Average:" color="#cb6914">
         <v-col align="center" justify="center">
           <p class="font-weight-light text-h4">
             {{ average }}

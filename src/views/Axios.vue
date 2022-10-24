@@ -18,6 +18,7 @@
           <v-row  rows="4" class="mt-4" >
           <v-flex xs12 sm6 md4 lg1 v-for="movie in movieObject.data" key="movie.title" >
           <v-card
+        color="drawerBackground"
          class="mx-10 ma-3"
          width="300"
          max-height="400"
