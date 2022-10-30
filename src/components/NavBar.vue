@@ -81,6 +81,7 @@ const items = ref([
   { title: "Area Activity", icon: "mdi-vector-triangle", path: "/area" },
   { title: "Axios Activity", icon: "mdi-api", path: "/axios" },
   { title: "Quiz Activity", icon: "mdi-help", path: "/quiz" },
+  { title: "Login Activity", icon: "mdi-help", path: "/login" },
 ]);
 
 function toggleDrawer() {

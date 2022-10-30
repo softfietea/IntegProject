@@ -10,13 +10,30 @@ import CompositionApiView from "../views/CompositionApi.vue";
 import AreaView from "../views/Area.vue";
 import AxiosView from "../views/Axios.vue";
 import QuizView from "../views/Quiz.vue";
-
+import LoginView from "../views/Login.vue";
+import RegisterView from "../views/Register.vue";
+import RegisterSuccessView from "../components/RegisterSuccessful.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      redirect: "/personalLife",
+      redirect: "/login",
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: LoginView,
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: RegisterView,
+    },
+    {
+      path: "/registersuccessful",
+      name: "RegisterSuccessful",
+      component: RegisterSuccessView,
     },
     {
       path: "/personalLife",

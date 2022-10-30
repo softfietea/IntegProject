@@ -1,12 +1,15 @@
 <template>
 
 
-
-
-
+<!--
+    Not Started Yet.
+-->
 <v-container v-if= "!isStart" class="d-flex flex-column align-stretch justify-center">
+    <h1 class="text-highlightColorText mb-5">Game Quiz</h1>
+    <h3 class="text-primary mb-5">Please Input your name to save to leaderboard after the quiz.</h3>
     <v-text-field
-      color="#ff1d5e"
+    
+      color="white"
       label="Input Player Name"
       v-model="username"
       hide-details="auto"
@@ -15,20 +18,27 @@
 
 </v-container>
 
+
+    
+<!--
+    Quiz Started.
+-->
+
 <div v-if="isStart">
-
-
-
 <v-container v-if= "!isLoaded" class="d-flex flex-row justify-center align-center fill-height">
         <div class="pixel-spinner align-center">
-
             <div class="pixel-spinner-inner"></div>
 </div>
 </v-container>
 
 
+<!-- Check if the API fetching is done -->
 
 <div v-if="isLoaded " >
+
+
+    <!-- The Quiz is ongoing.-->
+
     <div v-if="!isFinish">
         <v-card class="d-flex flex-row justify-center align-center pa-14">
     {{quizObject.data.results[numQuestion].question}}
@@ -48,34 +58,27 @@
 </div>
     </div>
 
+
+
+
+<!-- The quiz is finish -->
+
 <div v-if="isFinish"> 
 <v-container class="d-flex flex-column justify-space-around align-center fill-height">
 <h1>Quiz is Finish</h1>
 <h2>Your Score is</h2>
 <h1>{{score}}/10</h1>
-
-
 <v-card variant="outlined" >
     <h1 class="ma-5">Leaderboard: </h1>
     <v-card v-for="player in leaderboard" key="player.user" width="500px" class="ma-10 red" >
         <v-row class="pa-5" ><v-card-item>Name: {{ player.user}}</v-card-item>
 <v-card-item>Score:  {{player.topscore}}</v-card-item></v-row>
     </v-card>
-
-
 </v-card>
 <button class="button mt-5" width="400px" @click="resetQuiz">Retry</button> 
 </v-container>
-
-
-
 </div>
-
-
-
 </div>
-
-
 </div>
 </template>
 
@@ -96,8 +99,9 @@ var quizStringify = ref("");
 var score = ref(0);
 const leaderboard = ref([]);
 
-function compareScore(a, b) {
 
+
+function compareScore(a, b) {
 return b.topscore - a.topscore;
 }
 
@@ -130,7 +134,6 @@ if(leaderboard.value.length >= 5){
     console.log("Your score do not meet requirements");
 }
 }
-
 
 
 }
@@ -176,7 +179,6 @@ nextQuestion();
 
 
 function nextQuestion() {
- 
     if(numQuestion.value == 9){
         isFinish.value = true;
         if(isFinish.value){
@@ -186,8 +188,6 @@ function nextQuestion() {
         numQuestion.value++;
         randomizeQuestion();
     }
-   
-
 }
 
 function resetQuiz(){
@@ -209,6 +209,9 @@ getQuizApi();
         randomizeQuestion();
 });
 };
+
+
+
 
 onMounted(()=>{
 getQuizApi();

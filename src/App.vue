@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar />
+      <Navbar v-if="auth.currentUser != null" />
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -9,4 +9,10 @@
 
 <script setup>
 import Navbar from "@/components/NavBar.vue";
+import { getAuth } from "@firebase/auth";
+import { ref } from "vue";
+
+const auth = ref(getAuth());
+
+
 </script>
