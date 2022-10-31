@@ -1,24 +1,64 @@
 
 <template>
-  <v-container grid-list-xl>
+  <v-container fluid>
+<v-row align="center" justify="center">
+
+  <v-col align="center" justify="center" >
+    
+    <h1 align="start" class="ml-16">Login</h1>
+  <v-container width="30%" height="300" class="ml-13" >
+   
       <v-text-field
+      v-bind:error-messages= errorText
+    v-bind:error= haveError
       color="white"
       label="Email"
       v-model="email"
       hide-details="auto"
     ></v-text-field>  
+    <br>
     <v-text-field
+
       color="white"
       label="Password"
       v-model="pass"
       hide-details="auto"
     ></v-text-field>  
-    <h3 class="text-red">{{errorText}}</h3>
-    <button @click = "signIn(email,pass)"> Login</button>
     <br>
-    <button @click = "this.$router.push('Register')">Create an Account</button>
+    <v-btn
+    width="470"
+    outlined
+    color="indigo"
+    class="ma-2"
+     @click = "signIn(email,pass)"> Login</v-btn>
     <br>
-    <button @click="test"> test </button>
+    <v-btn
+    width="470"
+    outlined
+    color="thirdy"
+    class="ma-2"
+    @click = "this.$router.push('Register')">Create an Account</v-btn>
+
+
+  </v-container>
+</v-col>
+
+<v-container class="ma-16 mr-n1" align="center" justify="center">
+  <v-img
+  width="900"
+     src="../src/assets/onlinetest.svg"
+
+    ></v-img>
+</v-container>
+
+
+
+
+
+
+   
+</v-row>
+   <v-row justify="center" class="mt-16"> <h6>All Rights Reserved 2022</h6> </v-row>
   
   
   </v-container>
@@ -41,6 +81,7 @@
   const router = useRouter()
   const route = useRoute()
   const errorText = ref('');
+  const haveError = ref(false);
 
   function test(){
       console.log("Signed In user: " + getAuth().currentUser.email);

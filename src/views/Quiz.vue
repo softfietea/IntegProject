@@ -17,6 +17,24 @@
       hide-details="auto"
     ></v-text-field>
     <button class="button mt-5" @click="startGame">Start Quiz</button>
+
+
+    <v-snackbar
+      v-model="showSnackBar"
+    >
+      Ooops Please make sure you put a name before you start.
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="pink"
+          text
+          @click="showSnackBar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
   </v-container>
 
   <!--
@@ -134,6 +152,8 @@ import {
   doc,
   query,
   where,
+  orderBy,
+  limit,
 } from "@firebase/firestore";
 import db from "../main";
 import { getAuth } from "@firebase/auth";
@@ -150,6 +170,7 @@ var quizStringify = ref("");
 var score = ref(0);
 const leaderboard = ref([]);
 const quizLeaderboardCollection = collection(db, "quiz");
+const showSnackBar = ref(false);
 
 async function addUserLeaderboardFirestore() {
   const doctor = doc(db, "quiz", username.value);
@@ -165,19 +186,20 @@ function compareScore(a, b) {
 }
 
 async function addUserOnLeaderboard(name, score) {
-  const q = query(collection(db, "quiz"), where("score", "==", true));
 
-  await getDocs().then((val) => {
-    val.forEach();
-  });
 
-  if (name == "") {
-    leaderboard.value.push({ user: "Player", topscore: score });
-  } else {
-    leaderboard.value.push({ user: name, topscore: score });
+
+
+    const queryLeaderboard = query(quizLeaderboardCollection, orderBy("score"), limit(5));
+    await getDocs(queryLeaderboard).then((val)=>{
+    val.docs.forEach((value)=>{
+        leaderboard.value.push({user: value.get('name'), topscore: value.get('score')});
+    });
+})
+
     leaderboard.value.sort(compareScore);
     console.log(leaderboard.value);
-  }
+
 }
 
 async function checkUserObLeaderboard(name, score) {
@@ -229,7 +251,14 @@ function shuffleArray(array) {
 }
 
 function startGame() {
-  isStart.value = true;
+
+    if(username.value == "" ){
+        showSnackBar.value = true;
+        isStart.value = false;
+    }else{
+        isStart.value = true;
+    }
+
 }
 
 function verifyAnswer(answer) {
