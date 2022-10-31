@@ -17,6 +17,8 @@
     <button @click = "signIn(email,pass)"> Login</button>
     <br>
     <button @click = "this.$router.push('Register')">Create an Account</button>
+    <br>
+    <button @click="test"> test </button>
   
   
   </v-container>
@@ -28,7 +30,7 @@
   import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
   import { useRouter, useRoute } from 'vue-router'
   import { ref } from 'vue';
-  import { FirebaseError } from '@firebase/util';
+
 
 
   
@@ -39,6 +41,10 @@
   const router = useRouter()
   const route = useRoute()
   const errorText = ref('');
+
+  function test(){
+      console.log("Signed In user: " + getAuth().currentUser.email);
+    }
 
  function signIn(email,pass){
 

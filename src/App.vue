@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar v-if="auth.currentUser != null" />
+      <Navbar v-if="isLoggedIn"/>
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -9,10 +9,24 @@
 
 <script setup>
 import Navbar from "@/components/NavBar.vue";
-import { getAuth } from "@firebase/auth";
-import { ref } from "vue";
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
+import { ref, onMounted } from "vue";
 
-const auth = ref(getAuth());
+const isLoggedIn = ref(false);
+
+const auth = getAuth();
 
 
+onMounted(()=>{
+
+onAuthStateChanged(auth,(user)=>{
+  if(user){
+    isLoggedIn.value = true;
+  }else{
+    isLoggedIn.value = false;
+  }
+})
+
+
+});
 </script>

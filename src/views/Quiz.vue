@@ -8,7 +8,6 @@
     <h1 class="text-highlightColorText mb-5">Game Quiz</h1>
     <h3 class="text-primary mb-5">Please Input your name to save to leaderboard after the quiz.</h3>
     <v-text-field
-    
       color="white"
       label="Input Player Name"
       v-model="username"
@@ -87,6 +86,11 @@
 <script setup>
 import {ref,onMounted} from 'vue';
 import axios from 'axios';
+import {getDocs, collection} from '@firebase/firestore';
+import db from '../main';
+
+
+
 const username = ref('');
 const arrayOfQuestion = ref([]);
 var currentCorrectAnswer = ref('');
@@ -98,7 +102,6 @@ const isStart = ref(false);
 var quizStringify = ref("");
 var score = ref(0);
 const leaderboard = ref([]);
-
 
 
 function compareScore(a, b) {
@@ -118,8 +121,11 @@ function addUserOnLeaderboard(name,score){
   
 }
 
-function checkUserObLeaderboard(name,score){
- 
+
+
+async function checkUserObLeaderboard(name,score){
+
+
     if(leaderboard.value.length < 5){
         addUserOnLeaderboard(name,score);
         leaderboard.value.sort(compareScore); 
@@ -182,6 +188,7 @@ function nextQuestion() {
     if(numQuestion.value == 9){
         isFinish.value = true;
         if(isFinish.value){
+            
             checkUserObLeaderboard(username.value,score.value)
         }
     }else{
@@ -213,10 +220,12 @@ getQuizApi();
 
 
 
-onMounted(()=>{
+onMounted(async ()=>{
 getQuizApi();
 console.log(quizObject);
 console.log(arrayOfQuestion);
+
+
 });
 
 </script>

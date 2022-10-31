@@ -45,14 +45,17 @@
       >
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
+      <button @click="signOut"> Sign out</button>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { getAuth } from "@firebase/auth";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const drawer = ref(false);
-
 const items = ref([
   { title: "Personal Life", icon: "mdi-account", path: "/personalLife" },
   {
@@ -87,6 +90,13 @@ const items = ref([
 function toggleDrawer() {
   return (drawer.value = !drawer.value);
 }
+
+function signOut(){
+getAuth().signOut();
+router.push('/')
+}
+
+
 </script>
 
 <style scoped>

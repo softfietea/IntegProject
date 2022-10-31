@@ -5,6 +5,7 @@ import vuetify from "./plugins/vuetify";
 import { loadFonts } from "./plugins/webfontloader";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import {getFirestore} from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -17,9 +18,16 @@ const firebaseConfig = {
     measurementId: "G-VTRPVHN65S"
   };
 
+
+
   const app = initializeApp(firebaseConfig);
+  
+  const db = getFirestore(app);
   const analytics = getAnalytics(app);
 
 loadFonts();
 
 createApp(App).use(router).use(vuetify).mount("#app");
+
+
+export default db;
