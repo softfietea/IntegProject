@@ -32,7 +32,7 @@
       <v-container class="mx-15" fluid>
         <v-avatar image="../src/assets/alfiePicture.jpg" size="100"> </v-avatar>
       </v-container>
-      <div class="navHeader">Alfie C. Tribaco</div>
+      <div class="navHeader">Alfie C. Tribaco</div> 
       <div class="navHeaderSecondary">IT41S1</div>
 
       <v-list-item
@@ -45,7 +45,7 @@
       >
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
-      <button @click="signOut"> Sign out</button>
+      <v-btn outline class="ma-5 text-white" width="220" color="red" @click="signOut"> Sign out</v-btn>
     </v-navigation-drawer>
   </nav>
 </template>
@@ -84,7 +84,6 @@ const items = ref([
   { title: "Area Activity", icon: "mdi-vector-triangle", path: "/area" },
   { title: "Axios Activity", icon: "mdi-api", path: "/axios" },
   { title: "Quiz Activity", icon: "mdi-help", path: "/quiz" },
-  { title: "Login Activity", icon: "mdi-help", path: "/login" },
 ]);
 
 function toggleDrawer() {

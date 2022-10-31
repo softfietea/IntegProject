@@ -187,17 +187,16 @@ function compareScore(a, b) {
 
 async function addUserOnLeaderboard(name, score) {
 
-
-
-
-    const queryLeaderboard = query(quizLeaderboardCollection, orderBy("score"), limit(5));
+    const queryLeaderboard = query(quizLeaderboardCollection, orderBy("score",'desc'), limit(5));
     await getDocs(queryLeaderboard).then((val)=>{
+        leaderboard.value = [];
     val.docs.forEach((value)=>{
         leaderboard.value.push({user: value.get('name'), topscore: value.get('score')});
+        leaderboard.value.sort(compareScore);
     });
 })
 
-    leaderboard.value.sort(compareScore);
+    
     console.log(leaderboard.value);
 
 }

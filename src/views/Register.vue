@@ -1,17 +1,27 @@
 <template>
-    <v-container grid-list-xs>
-      <v-text-field
+
+<v-container fluid>
+<v-row align="center" justify="center">
+
+  <v-col align="center" justify="center" >
+    
+    <h1 align="start" class="ml-16">Register</h1>
+  <v-container width="30%" height="300" class="ml-13" >
+   
+    <v-text-field
         color="white"
         label="Email"
         v-model="email"
         hide-details="auto"
       ></v-text-field>  
+      <br>
       <v-text-field
         color="white"
         label="Password"
         v-model="pass"
         hide-details="auto"
       ></v-text-field>  
+      <br>
       <v-text-field
       
         color="white"
@@ -19,6 +29,7 @@
         v-model="passConfirm"
         hide-details="auto"
       ></v-text-field>  
+      <br>
       <v-snackbar
         v-model="snackbarState"
         :timeout="3000"
@@ -27,10 +38,45 @@
      
       </v-snackbar>
 
-      <button @click="signUp"> Create Account</button>
-      <br>
-      <button @click="test"> test </button>
-    </v-container>
+      <v-btn  width="470"
+    outlined
+    color="green"
+    class="ma-2 text-white" @click="signUp"> Create Account</v-btn>
+
+    <v-btn  width="470"
+    outlined
+    color="indigo"
+    class="ma-2 text-white" @click="this.$router.push('login')"> Go back</v-btn>
+
+    
+
+
+  </v-container>
+</v-col>
+
+<v-container class="ma-16 mr-n1" align="center" justify="center">
+  <v-img
+  width="800"
+     src="../src/assets/register.svg"
+
+    ></v-img>
+</v-container>
+
+
+
+
+
+
+   
+</v-row>
+   <v-row justify="center" align="end" class="mt-16" fluid> <h6>All Rights Reserved 2022</h6> </v-row>
+  
+  
+  </v-container>
+  
+
+
+
     
     
     </template>

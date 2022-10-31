@@ -45,7 +45,7 @@
 
 <v-container class="ma-16 mr-n1" align="center" justify="center">
   <v-img
-  width="900"
+  width="800"
      src="../src/assets/onlinetest.svg"
 
     ></v-img>
@@ -58,7 +58,7 @@
 
    
 </v-row>
-   <v-row justify="center" class="mt-16"> <h6>All Rights Reserved 2022</h6> </v-row>
+
   
   
   </v-container>
