@@ -1,35 +1,25 @@
 <template>
-    <v-container grid-list-lg align="center">
-        <v-layout row wrap>
-    <v-flex xs12>
-        <v-card color="primary" class="red--text">
-            <v-container fluid grid-list-lg>
-                <v-layout row>
-                    <v-flex xs7>
-                        <div>
-                            <div class="headline">Thank you for Registering your account</div>
-                            <div>you can now navigate to different alfie's activity</div>
-                            <button @click="this.$router.push('PersonalLife')"> Click here</button>
-                        </div>
-                    </v-flex>
-                    <v-flex xs5>
-                        <v-card-media
-                            src="description"
-                            height="125px"
-                            contain
-                        ></v-card-media>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </v-card>
-    </v-flex>
-</v-layout>
-    </v-container>
-
+  <v-app>
+    <v-col align="center">
+      <v-container class="">
+        <v-img class="w-25" src="../src/assets/thankyou.svg"></v-img>
+      </v-container>
+      <h1 class="headline">Thank you for Registering your account</h1>
+      <h2 class="caption" style="font-weight: 400">
+        you can now navigate to different alfie's activity
+      </h2>
+      <h4 class="caption" style="font-weight: 400">
+        you can start by clicking the button to bring you to the Personal
+        Activity.
+      </h4>
+      <v-btn
+        color="indigo"
+        class="mt-5"
+        @click="this.$router.push('PersonalLife')"
+        >Click here</v-btn
+      >
+    </v-col>
+  </v-app>
 </template>
 
-
-<script setup>
-
-
-</script>
+<script setup></script>

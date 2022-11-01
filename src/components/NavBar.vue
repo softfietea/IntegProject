@@ -3,7 +3,7 @@
     <v-toolbar app color="background">
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
-      Integrative Programming and Technologies
+        Integrative Programming and Technologies
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
@@ -25,14 +25,18 @@
           </v-list-item>
         </v-list>
       </v-menu>
-
     </v-toolbar>
 
-    <v-navigation-drawer app v-model="drawer" floating="true" color="drawerBackground">
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      floating="true"
+      color="drawerBackground"
+    >
       <v-container class="mx-15" fluid>
         <v-avatar image="../src/assets/alfiePicture.jpg" size="100"> </v-avatar>
       </v-container>
-      <div class="navHeader">Alfie C. Tribaco</div> 
+      <div class="navHeader">Alfie C. Tribaco</div>
       <div class="navHeaderSecondary">IT41S1</div>
 
       <v-list-item
@@ -45,7 +49,9 @@
       >
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
-      <v-btn outline class="ma-5 text-white" width="220" color="red" @click="signOut"> Sign out</v-btn>
+      <v-btn outline class="ma-5 text-white w-50" color="red" @click="signOut">
+        Sign out</v-btn
+      >
     </v-navigation-drawer>
   </nav>
 </template>
@@ -90,12 +96,10 @@ function toggleDrawer() {
   return (drawer.value = !drawer.value);
 }
 
-function signOut(){
-getAuth().signOut();
-router.push('/')
+function signOut() {
+  getAuth().signOut();
+  router.push("/");
 }
-
-
 </script>
 
 <style scoped>
