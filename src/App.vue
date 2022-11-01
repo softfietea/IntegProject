@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar v-if="isLoggedIn"/>
+      <Navbar v-if="isLoggedIn" />
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -16,17 +16,13 @@ const isLoggedIn = ref(false);
 
 const auth = getAuth();
 
-
-onMounted(()=>{
-
-onAuthStateChanged(auth,(user)=>{
-  if(user){
-    isLoggedIn.value = true;
-  }else{
-    isLoggedIn.value = false;
-  }
-})
-
-
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
 });
 </script>
