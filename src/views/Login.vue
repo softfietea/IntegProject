@@ -49,7 +49,10 @@
       </v-container>
 
       <v-container class="h-25 w-50">
-        <v-img src="../src/assets/onlinetest.svg" class="ma-16"></v-img>
+        <v-img
+          :src="require('../src/assets/onlinetest.svg')"
+          class="ma-16"
+        ></v-img>
       </v-container>
     </v-row>
   </v-main>
